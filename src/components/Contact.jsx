@@ -68,7 +68,7 @@ const Contact = () => {
       // 5. Copy the Web App URL and replace 'YOUR_GOOGLE_SCRIPT_URL' below.
       // ------------------------------------------------------------------
 
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/home/projects/1pi8g0AaP2k4WdnpmFbV9kScH8OjVO2s7qMoX3eocGCLI-YgQ321Q-cBv/edit';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/u/0/home/projects/1pi8g0AaP2k4WdnpmFbV9kScH8OjVO2s7qMoX3eocGCLI-YgQ321Q-cBv';
 
       // Mock Submission for Demo
       await new Promise(resolve => setTimeout(resolve, 1500));
