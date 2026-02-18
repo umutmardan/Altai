@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
 import { Palette } from 'lucide-react';
+import AgreeableBeige from '../assets/Agreeable Beige.png';
+import Aleutian from '../assets/Aleutian.png';
+import CowboyBoots from '../assets/Cowboy Boots.png';
+import NaturalLinen from '../assets/Natural Linen.png';
+import UrbanBronze from '../assets/Urban Bronze.png';
+import WhiteTruffle from '../assets/White Truffle.png';
 
 const colors = [
-  { name: 'Classic Beige', hex: '#d6bd98', class: 'bg-[#d6bd98]' },
-  { name: 'Sage Green', hex: '#677d6a', class: 'bg-[#677d6a]' },
-  { name: 'Deep Forest', hex: '#1a3636', class: 'bg-[#1a3636]' },
-  { name: 'Warm Terracotta', hex: '#c27ba0', class: 'bg-[#c27ba0]' }, // Adjusted to a warm pink/clay
-  { name: 'Modern Charcoal', hex: '#40534c', class: 'bg-[#40534c]' },
+  { name: 'Agreeable Beige', hex: '#DFD3C3', image: AgreeableBeige },
+  { name: 'Aleutian', hex: '#98a9b7', image: Aleutian },
+  { name: 'Cowboy Boots', hex: '#695239', image: CowboyBoots },
+  { name: 'Natural Linen', hex: '#BFB6AA', image: NaturalLinen },
+  { name: 'Urban Bronze', hex: '#54504a', image: UrbanBronze },
+  { name: 'White Truffle', hex: '#d7c8c2', image: WhiteTruffle },
 ];
 
 const RoomIllustrator = () => {
-  const [wallColors, setWallColors] = useState({
-    left: '#e5e5e5',
-    back: '#e5e5e5',
-    right: '#e5e5e5',
-  });
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-
-  const handleWallClick = (wall) => {
-    setWallColors((prev) => ({
-      ...prev,
-      [wall]: selectedColor.hex,
-    }));
-  };
 
   return (
     <section id="room-design" className="py-24 bg-stone-100">
@@ -30,7 +25,7 @@ const RoomIllustrator = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6 font-serif">Visualize Your Space</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Select a color from the palette and click on the walls to see how different shades can transform a room.
+            Select a color from the palette to see how different shades can transform the room.
           </p>
         </div>
 
@@ -59,71 +54,16 @@ const RoomIllustrator = () => {
             </div>
           </div>
 
-          {/* Room SVG */}
-          <div className="relative w-full max-w-4xl aspect-video bg-white rounded-3xl shadow-2xl overflow-hidden border-8 border-white order-1 lg:order-2">
-            <svg viewBox="0 0 800 600" className="w-full h-full cursor-pointer">
-              {/* Ceiling */}
-              <polygon points="0,0 800,0 600,100 200,100" fill="#f3f4f6" />
+          {/* Room Image Display */}
+          <div className="relative w-full max-w-4xl aspect-video bg-white rounded-3xl shadow-2xl overflow-hidden border-8 border-white order-1 lg:order-2 flex items-center justify-center bg-gray-100">
+            <img
+              src={selectedColor.image}
+              alt={`Room painted in ${selectedColor.name}`}
+              className="w-full h-full object-cover transition-opacity duration-500"
+            />
 
-              {/* Floor */}
-              <polygon points="0,600 800,600 600,500 200,500" fill="#d1d5db" />
-              {/* Rug */}
-              <ellipse cx="400" cy="550" rx="150" ry="30" fill="#9ca3af" opacity="0.5" />
-
-              {/* Left Wall */}
-              <polygon
-                points="0,0 200,100 200,500 0,600"
-                fill={wallColors.left}
-                onClick={() => handleWallClick('left')}
-                className="transition-colors duration-500 hover:brightness-95"
-              />
-
-              {/* Right Wall */}
-              <polygon
-                points="800,0 600,100 600,500 800,600"
-                fill={wallColors.right}
-                onClick={() => handleWallClick('right')}
-                className="transition-colors duration-500 hover:brightness-95"
-              />
-
-              {/* Back Wall */}
-              <rect
-                x="200"
-                y="100"
-                width="400"
-                height="400"
-                fill={wallColors.back}
-                onClick={() => handleWallClick('back')}
-                className="transition-colors duration-500 hover:brightness-95"
-              />
-
-              {/* Shadows/Lighting Overlays */}
-              <polygon points="0,0 200,100 200,500 0,600" fill="black" opacity="0.1" pointerEvents="none" />
-              <polygon points="800,0 600,100 600,500 800,600" fill="black" opacity="0.15" pointerEvents="none" />
-
-              {/* Simple Furniture Outlines (Non-interactive) */}
-              {/* Painting Frame on Back Wall */}
-              <rect x="350" y="180" width="100" height="120" fill="#fff" stroke="#333" strokeWidth="4" pointerEvents="none" />
-              <rect x="360" y="190" width="80" height="100" fill="#eee" pointerEvents="none" />
-
-              {/* Couch */}
-              <path
-                d="M 250 450 L 550 450 L 550 520 L 250 520 Z"
-                fill="#57534e"
-                pointerEvents="none"
-              />
-              <path
-                d="M 250 450 Q 250 400 300 400 L 500 400 Q 550 400 550 450"
-                fill="#78716c"
-                pointerEvents="none"
-              />
-              {/* Plant */}
-              <path d="M 680 500 Q 650 350 700 300 Q 750 350 720 500" fill="#166534" pointerEvents="none" />
-              <rect x="680" y="500" width="40" height="50" fill="#b45309" pointerEvents="none" />
-            </svg>
-
-            <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium text-gray-600 pointer-events-none">
-              Click walls to paint
+            <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium text-gray-600 pointer-events-none shadow-sm">
+              Currently viewing: <span className="font-bold text-brand-dark">{selectedColor.name}</span>
             </div>
           </div>
         </div>
