@@ -4,4 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  /* This ensures that when navigating to anchor links,
+     the fixed header (80px height) doesn't overlap the section title */
+  scroll-padding-top: 80px;
 }
