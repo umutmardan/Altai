@@ -40,8 +40,8 @@ const Contact = () => {
     setStatus('submitting');
 
     // Basic Validation
-    if (!formData.phone) {
-      alert('Phone number is required.');
+    if (!formData.email) {
+      alert('Email address is required.');
       setStatus('idle');
       return;
     }
@@ -144,7 +144,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number <span className="text-red-400">*</span></label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number (Optional)</label>
                   <input
                     type="tel"
                     name="phone"
@@ -152,14 +152,13 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-light/50 focus:border-transparent transition-all"
                     placeholder="(555) 123-4567"
-                    required
                   />
                 </div>
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Email Address (Optional)</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Email Address <span className="text-red-400">*</span></label>
                 <input
                   type="email"
                   name="email"
@@ -167,6 +166,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-light/50 focus:border-transparent transition-all"
                   placeholder="you@example.com"
+                  required
                 />
               </div>
 
