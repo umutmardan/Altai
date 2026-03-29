@@ -15,7 +15,7 @@ const About = () => {
 
         <div className="prose prose-lg text-gray-600 mx-auto leading-loose">
           <p className="mb-8 first-letter:text-5xl first-letter:font-serif first-letter:text-brand-dark first-letter:float-left first-letter:mr-3 first-letter:mt-[-6px]">
-            Altai Home Services is more than just a painting company; it's a family legacy. As a dedicated <strong>Father & Son team with over 15 years of combined experience</strong>, we have honed our craft to deliver exceptional results that stand the test of time.
+            Altai Home Services a family legacy. As a dedicated <strong>Father & Son team with over 15 years of combined experience</strong>, we have honed our craft to deliver exceptional results that stand the test of time.
           </p>
 
           <p className="mb-8">
@@ -35,9 +35,7 @@ const About = () => {
               <p className="text-gray-700 font-medium max-w-lg">
                 We believe that success is best shared. That's why <span className="text-brand-dark font-bold">a portion of every project's profit is donated</span> to support those in need across Canada and around the world.
               </p>
-              <p className="mt-4 text-sm text-gray-500 uppercase tracking-widest font-semibold">
-                Painting with Purpose
-              </p>
+          
             </div>
           </div>
         </div>
